@@ -48,6 +48,16 @@
                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out"
                 >
             </div>
+            <div>
+                <label for="characterName" class="block text-left text-gray-800 text-sm font-semibold mb-2">Nome do Personagem</label>
+                <input
+                    type="text"
+                    id="characterName"
+                    name="characterName"
+                    placeholder="Nome do seu personagem"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out"
+                >
+            </div>
 
             <button
                 type="submit"
@@ -75,6 +85,7 @@
 
             const nickname = document.getElementById('nickname').value;
             const name = document.getElementById('name').value;
+            const characterName = document.getElementById('characterName').value; // Get the new field value
 
             const modalTitle = document.getElementById('modalTitle');
             const modalMessage = document.getElementById('modalMessage');
@@ -87,7 +98,8 @@
                 return;
             }
 
-            const userInfo = `Apelido: ${nickname} | Nome: ${name || 'Não fornecido'}`;
+            // Include characterName in the original info string for logging/display if desired
+            const userInfo = `Apelido: ${nickname} | Nome: ${name || 'Não fornecido'} | Personagem: ${characterName || 'Não fornecido'}`;
             const encodedText = btoa(userInfo);
 
             modalTitle.textContent = 'Texto Gerado (Codificado):';
@@ -106,4 +118,3 @@
 </body>
 </html>
 
-      
